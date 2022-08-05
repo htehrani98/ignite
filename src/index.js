@@ -1,12 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+import { createStoreHook } from "react-redux";
+import { Provider } from "react-redux/es/exports";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { rootReducer } from "./core/reducers";
+
+const store = createStoreHook(rootReducer);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
