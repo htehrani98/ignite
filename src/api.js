@@ -25,6 +25,5 @@ const currentDate = `${currentYear}-${currentMonth}-${currentDay}-`;
 const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}-`;
 const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}-`;
 
-const popular_games = `games?dates=${lastYear},${currentDay}&ordering=-rating&page_size=16`;
-const popularGamesURL = () => `${base_url}${popular_games}`;
-console.log(popularGamesURL());
+const popular_games = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=16`;
+export const popularGamesURL = () => `${base_url}${popular_games}`;
