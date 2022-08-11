@@ -3,8 +3,6 @@ const initState = {
   newGames: [],
   upComing: [],
 };
-// it errors when use = instead of :
-// but not for ed
 
 export const gamesReducer = (state, action) => {
   switch (action.type) {

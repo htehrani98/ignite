@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { createStoreHook } from "react-redux";
+import { createStore } from "redux";
 import { Provider } from "react-redux/es/exports";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { rootReducer } from "./core/reducers";
 
-const store = createStoreHook(rootReducer);
+const store = createStore(
+  rootReducer,
+  +window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

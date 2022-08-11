@@ -1,5 +1,5 @@
 const base_url =
-  "https://api.rawg.io/api/platforms?key=25d2f03a14bb4f56a5977019da5ea2ec/";
+  "https://api.rawg.io/api/platforms?key=b5c3c26836ae44d3befbbf80d80acdfb";
 const getCurrentDay = () => {
   const day = new Date().getDate();
   if (day < 10) {
@@ -27,3 +27,17 @@ const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}-`;
 
 const popular_games = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=16`;
 export const popularGamesURL = () => `${base_url}${popular_games}`;
+
+// const url = 'api.example.com/user?max_age=15&sort=asc'
+
+// `
+// [
+//   {"name": "hamid", "age": 22},
+//   {"name": "hamid", "age": 10},
+//   {"name": "hamid", "age": 22},
+//   {"name": "hamid", "age": 15},
+//   {"name": "hamid", "age": 22},
+//   {"name": "hamid", "age": 22},
+//   {"name": "hamid", "age": 22},
+// ]
+// `
