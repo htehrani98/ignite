@@ -1,5 +1,5 @@
-const base_url =
-  "https://api.rawg.io/api/platforms?key=b5c3c26836ae44d3befbbf80d80acdfb";
+const base_url = "https://api.rawg.io/api";
+
 const getCurrentDay = () => {
   const day = new Date().getDate();
   if (day < 10) {
@@ -11,22 +11,28 @@ const getCurrentDay = () => {
 
 const getCurrentMonth = () => {
   const month = new Date().getMonth() + 1;
-  if (month < 10) {
-    return `0${month}`;
-  } else {
-    return month;
-  }
+  return month.toString().padStart(2, "0");
+  // if (month < 10) {
+  //   return `0${month}`;
+  // } else {
+  //   return month;
+  // }
 };
 
 const currentYear = new Date().getFullYear();
 const currentDay = getCurrentDay();
 const currentMonth = getCurrentMonth();
-const currentDate = `${currentYear}-${currentMonth}-${currentDay}-`;
-const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}-`;
+const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
 const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}-`;
 
-const popular_games = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=16`;
-export const popularGamesURL = () => `${base_url}${popular_games}`;
+const popular_games = `/games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=16`;
+const api_key = "&key=0150979fafd046608086dec5c755559e";
+
+export const popularGamesURL = () => {
+  console.log(`${base_url}${popular_games}${api_key}`);
+  return `${base_url}${popular_games}${api_key}`;
+};
 
 // const url = 'api.example.com/user?max_age=15&sort=asc'
 
