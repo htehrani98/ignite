@@ -24,15 +24,16 @@ const currentDay = getCurrentDay();
 const currentMonth = getCurrentMonth();
 const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
 const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
-const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}-`;
+const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 const popular_games = `/games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=16`;
+const upComing_Games = `/games?dates=${currentDate},${nextYear}&ordering=-added&page_size=16`;
+const newGames = `/games?dates=${lastYear},${currentDate}&ordering=-released&page_size=16`;
 const api_key = "&key=0150979fafd046608086dec5c755559e";
 
-export const popularGamesURL = () => {
-  console.log(`${base_url}${popular_games}${api_key}`);
-  return `${base_url}${popular_games}${api_key}`;
-};
+export const popularGamesURL = () => `${base_url}${popular_games}${api_key}`;
+export const upComingGamesURL = () => `${base_url}${upComing_Games}${api_key}`;
+export const newGamesURL = () => `${base_url}${newGames}${api_key}`;
 
 // const url = 'api.example.com/user?max_age=15&sort=asc'
 

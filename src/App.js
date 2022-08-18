@@ -7,7 +7,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadGames());
-  });
+  }, []);
   return (
     <div className="App">
       <h1>Hello Ignite</h1>
