@@ -35,16 +35,4 @@ export const popularGamesURL = () => `${base_url}${popular_games}${api_key}`;
 export const upComingGamesURL = () => `${base_url}${upComing_Games}${api_key}`;
 export const newGamesURL = () => `${base_url}${newGames}${api_key}`;
 
-// const url = 'api.example.com/user?max_age=15&sort=asc'
-
-// `
-// [
-//   {"name": "hamid", "age": 22},
-//   {"name": "hamid", "age": 10},
-//   {"name": "hamid", "age": 22},
-//   {"name": "hamid", "age": 15},
-//   {"name": "hamid", "age": 22},
-//   {"name": "hamid", "age": 22},
-//   {"name": "hamid", "age": 22},
-// ]
-// `
+// upComingGamesURL = https://api.rawg.io/api/games?dates=2022-08-21,2023-08-21&ordering=-added&page_size=16&key=0150979fafd046608086dec5c755559e
