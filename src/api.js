@@ -34,5 +34,7 @@ const api_key = "&key=0150979fafd046608086dec5c755559e";
 export const popularGamesURL = () => `${base_url}${popular_games}${api_key}`;
 export const upComingGamesURL = () => `${base_url}${upComing_Games}${api_key}`;
 export const newGamesURL = () => `${base_url}${newGames}${api_key}`;
+export const gameDetailsURL = (game_id) => `${base_url}games/${game_id}`;
 
+console.log(gameDetailsURL.data);
 // upComingGamesURL = https://api.rawg.io/api/games?dates=2022-08-21,2023-08-21&ordering=-added&page_size=16&key=0150979fafd046608086dec5c755559e
