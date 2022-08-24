@@ -29,10 +29,18 @@ const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 const popular_games = `/games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=16`;
 const upComing_Games = `/games?dates=${currentDate},${nextYear}&ordering=-added&page_size=16`;
 const newGames = `/games?dates=${lastYear},${currentDate}&ordering=-released&page_size=16`;
-const api_key = "&key=0150979fafd046608086dec5c755559e";
+const api_key = "key=0150979fafd046608086dec5c755559e";
 
-export const popularGamesURL = () => `${base_url}${popular_games}${api_key}`;
-export const upComingGamesURL = () => `${base_url}${upComing_Games}${api_key}`;
-export const newGamesURL = () => `${base_url}${newGames}${api_key}`;
-export const gameDetailsURL = (game_id) => `${base_url}games/${game_id}`;
+export const popularGamesURL = () => `${base_url}${popular_games}&${api_key}`;
+export const upComingGamesURL = () => `${base_url}${upComing_Games}&${api_key}`;
+export const newGamesURL = () => `${base_url}${newGames}&${api_key}`;
+export const gameDetailsURL = (game_id) =>
+  `${base_url}/games/${game_id}?${api_key}`;
 // upComingGamesURL = https://api.rawg.io/api/games?dates=2022-08-21,2023-08-21&ordering=-added&page_size=16&key=0150979fafd046608086dec5c755559e
+export const gameScreenshotURL = (game_id) =>
+  `${base_url}/games/${game_id}/screenshots?${api_key}`;
+
+// we got 3 type of api:
+//  1. restfull api
+//  2. (at qaleb xml somthing like html (the mansookh) )
+//  3. graphQL
