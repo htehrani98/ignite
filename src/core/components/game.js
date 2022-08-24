@@ -3,12 +3,11 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-// what is import { useDispatch } from "react-redux/es/exports";
 
 import { loadDetail } from "../actions/detail-action";
 
 export const Game = ({ name, released, image, id }) => {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const loadDetailHandler = () => {
     dispatch(loadDetail(id));
   };
