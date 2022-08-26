@@ -8,11 +8,14 @@ export const GlobalStyles = createGlobalStyle`
   }
   html{
     &::-webkit-scrollbar{
-      width: 0.5rem;
+      width: 0.8rem;
     }
-    &::-webkit-slider-thumb{
-      background-color: darkgreen;
+    &::-webkit-scrollbar-thumb{
+      background-color: #00a000;
     }
+    &::-webkit-scrollbar-track {
+    background: #494949;
+  }
   }
   body{
     font-family: 'Montserrat', sans-serif;
