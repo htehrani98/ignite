@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { loadDetail } from "../actions/detail-action";
 
@@ -15,9 +16,11 @@ export const Game = ({ name, released, image, id }) => {
   //and why we don't use dispatch(loadDetail) in the onClick though
   return (
     <StyledGame onClick={loadDetailHandler}>
-      <h3>{name}</h3>
-      <p>{released}</p>
-      <img src={image} alt={name} />
+      <Link to={`/game/${id}`}>
+        <h3>{name}</h3>
+        <p>{released}</p>
+        <img src={image} alt={name} />
+      </Link>
     </StyledGame>
   );
 };

@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 import { loadGames } from "../core/actions/game-action";
 import { Game } from "../core/components/game";
@@ -15,9 +16,14 @@ export const Home = () => {
   }, []);
 
   const { popular, upComing, newGames } = useSelector((state) => state.games);
+
+  const location = useLocation();
+  const pathId = location.pathname.split("/")[2];
+  console.log(pathId);
+
   return (
     <GameList>
-      <GameDetail />
+      {pathId && <GameDetail />}
       <h2>Upcoming Games</h2>
       <Games>
         {upComing.map((game) => (
@@ -70,4 +76,5 @@ const Games = styled(motion.div)`
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
+  cursor: pointer;
 `;

@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux/es/exports";
 import thunk from "redux-thunk";
+import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -17,7 +18,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
