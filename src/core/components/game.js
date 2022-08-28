@@ -10,6 +10,8 @@ import { loadDetail } from "../actions/detail-action";
 export const Game = ({ name, released, image, id }) => {
   const dispatch = useDispatch();
   const loadDetailHandler = () => {
+    document.body.style.overflow = "hidden";
+    //  what the hell is going on up here
     dispatch(loadDetail(id));
   };
   // episode10 at 13:45 pashshshmaam
@@ -30,6 +32,8 @@ const StyledGame = styled(motion.div)`
   box-shadow: 0px 5px 20px rgb(255, 155, 255, 0.5);
   text-align: center;
   border-radius: 1rem;
+  cursor: pointer;
+  overflow: hidden;
   img {
     width: 100%;
     height: 40vh;

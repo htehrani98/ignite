@@ -3,13 +3,24 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const GameDetail = () => {
+  const navigate = useNavigate();
+
+  const exitDetailHandler = (e) => {
+    const element = e.target;
+    if (element.classList.contains("shadow")) {
+      document.body.style.overflow = "auto";
+      navigate("/");
+      // location.push("/");
+    }
+  };
   const { screen, game, isLoading } = useSelector((state) => state.detail);
   return (
     <>
       {!isLoading && (
-        <CardShadow>
+        <CardShadow className="shadow" onClick={exitDetailHandler}>
           <Detail>
             <Stats>
               <div className="rating">
@@ -103,3 +114,5 @@ const Media = styled(motion.div)`
 const Description = styled(motion.div)`
   margin: 5rem 0rem;
 `;
+
+// style haye taarif shode dar home, global-styles, games tadakhol nadarand?

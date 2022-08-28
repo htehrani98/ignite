@@ -38,6 +38,9 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 200%;
     color: #ba68ba
   }
+  img{
+    display: block;
+  }
 `;
 
 // font-family: 'Abril Fatface', cursive;
