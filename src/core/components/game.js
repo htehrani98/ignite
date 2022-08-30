@@ -49,4 +49,7 @@ const StyledGame = styled(motion.div)`
     height: 40vh;
     object-fit: cover;
   }
+  a {
+    text-decoration: none;
+  }
 `;
