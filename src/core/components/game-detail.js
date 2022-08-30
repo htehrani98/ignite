@@ -23,7 +23,13 @@ export const GameDetail = (pathId) => {
     switch (platform) {
       case "playStation":
         return "/img/playstation.svg";
+      case "PlayStation 4":
+        return "/img/playstation.svg";
+      case "PlayStation 5":
+        return "/img/playstation.svg";
       case "Xbox One":
+        return "/img/xbox.svg";
+      case "Xbox Series S/X":
         return "/img/xbox.svg";
       case "PC":
         return "/img/steam.svg";
