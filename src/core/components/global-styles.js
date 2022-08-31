@@ -41,6 +41,12 @@ export const GlobalStyles = createGlobalStyle`
   img{
     display: block;
   }
+  input{
+    font-family: "Montserrat", sans-serif;
+    background-color: #261429;
+    border-radius: 22px;
+    color: #de00e2;
+  }
 `;
 
 // font-family: 'Abril Fatface', cursive;
