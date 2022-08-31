@@ -19,6 +19,20 @@ export const GameDetail = (pathId) => {
       // location.push("/");
     }
   };
+
+  const getStars = () => {
+    const stars = [];
+    const rating = Math.floor(game.rating);
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<img alt="star" key={i} src="/img/star-full.png" />);
+      } else {
+        stars.push(<img alt="star" key={i} src="/img/star-empty.png" />);
+      }
+    }
+    return stars;
+  };
+
   const getPlatform = (platform) => {
     switch (platform) {
       case "playStation":
@@ -53,6 +67,7 @@ export const GameDetail = (pathId) => {
                   {game.name}
                 </motion.h3>
                 <p>Rating: {game.rating}</p>
+                {getStars()}
               </div>
               <Info>
                 <h3>Platforms</h3>
@@ -129,6 +144,11 @@ const Stats = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  img {
+    width: 2rem;
+    height: 2rem;
+    display: inline;
+  }
 `;
 
 const Info = styled(motion.div)`
