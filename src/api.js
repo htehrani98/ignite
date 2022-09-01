@@ -39,8 +39,12 @@ export const gameDetailsURL = (game_id) =>
 // upComingGamesURL = https://api.rawg.io/api/games?dates=2022-08-21,2023-08-21&ordering=-added&page_size=16&key=0150979fafd046608086dec5c755559e
 export const gameScreenshotURL = (game_id) =>
   `${base_url}/games/${game_id}/screenshots?${api_key}`;
+export const searchGameURL = (game_name) =>
+  `${base_url}/games?search=${game_name}&page_size=9&${api_key}`;
 
 // we got 3 type of api:
 //  1. restfull api
 //  2. (at qaleb xml somthing like html (the mansookh) )
 //  3. graphQL
+
+// https://api.rawg.io/docs/#operation/creators_read
