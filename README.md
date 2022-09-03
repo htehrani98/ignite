@@ -1,5 +1,5 @@
 ## What does it do?
-It's project that gives a complete details of the games around the world..
+This project gives a complete detail of the games around the world...
 
 
 ## Stack used on this project:
