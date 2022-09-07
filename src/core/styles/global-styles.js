@@ -1,47 +1,56 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-  *{
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  html{
+
+  html {
     &::-webkit-scrollbar{
       width: 0.8rem;
     }
+
     &::-webkit-scrollbar-thumb{
       background-color: #00a000;
     }
+    
     &::-webkit-scrollbar-track {
-    background: #494949;
+      background: #494949;
+    }
   }
-  }
-  body{
+  
+  body {
     font-family: 'Montserrat', sans-serif;
     width: 100%;
     background-color: #202737;
   }
-  h2{
+
+  h2 {
     font-size: 3rem;
     font-family: 'Audiowide', cursive;
     font-weight: bolder;
     color: #f10000;
   }
-  h3{
+
+  h3 {
     font-size: 1.3rem;
     color: #dbdbdb;
     padding: 1.5rem 0rem;
   }
-  p{
+
+  p {
     font-size: 1.2rem;
     line-height: 200%;
     color: #ba68ba
   }
-  img{
+
+  img {
     display: block;
   }
-  input{
+
+  input {
     font-family: "Montserrat", sans-serif;
     background-color: #261429;
     border-radius: 22px;

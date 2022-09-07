@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
-import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
-import { loadGames } from "../core/actions/game-action";
-import { Game } from "../core/components/game";
-import { GameDetail } from "../core/components/game-detail";
+import { loadGames } from '../../store/action/game-action';
+import { Game } from '../../core/components/game';
+import { GameDetail } from '../../core/components/game-detail';
+import { FadeIn } from '../../core/constants/animation';
+import * as styles from './styles';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -15,24 +16,20 @@ export const Home = () => {
     dispatch(loadGames());
   }, []);
 
-  const { popular, upComing, newGames, searched } = useSelector(
-    (state) => state.games
-  );
+  const { popular, upComing, newGames, searched } = useSelector(state => state.games);
 
   const location = useLocation();
-  const pathId = location.pathname.split("/")[2];
+  const pathId = location.pathname.split('/')[2];
 
   return (
-    <GameList>
+    <styles.GameList variants={FadeIn} initial="hidden" animate="show">
       <AnimateSharedLayout type="crossfade">
-        <AnimatePresence>
-          {pathId && <GameDetail pathId={pathId} />}
-        </AnimatePresence>
+        <AnimatePresence>{pathId && <GameDetail pathId={pathId} />}</AnimatePresence>
         {searched.length ? (
           <div className="searched">
             <h2>Searched Games</h2>
-            <Games>
-              {searched.map((game) => (
+            <styles.Games>
+              {searched.map(game => (
                 <Game
                   name={game.name}
                   released={game.released}
@@ -41,14 +38,14 @@ export const Home = () => {
                   key={game.id}
                 />
               ))}
-            </Games>
+            </styles.Games>
           </div>
         ) : (
-          ""
+          ''
         )}
         <h2>Upcoming Games</h2>
-        <Games>
-          {upComing.map((game) => (
+        <styles.Games>
+          {upComing.map(game => (
             <Game
               name={game.name}
               released={game.released}
@@ -57,10 +54,10 @@ export const Home = () => {
               key={game.id}
             />
           ))}
-        </Games>
+        </styles.Games>
         <h2>Popular Games</h2>
-        <Games>
-          {popular.map((game) => (
+        <styles.Games>
+          {popular.map(game => (
             <Game
               name={game.name}
               released={game.released}
@@ -69,10 +66,10 @@ export const Home = () => {
               key={game.id}
             />
           ))}
-        </Games>
+        </styles.Games>
         <h2>New Games</h2>
-        <Games>
-          {newGames.map((game) => (
+        <styles.Games>
+          {newGames.map(game => (
             <Game
               name={game.name}
               released={game.released}
@@ -81,23 +78,8 @@ export const Home = () => {
               key={game.id}
             />
           ))}
-        </Games>
+        </styles.Games>
       </AnimateSharedLayout>
-    </GameList>
+    </styles.GameList>
   );
 };
-
-const GameList = styled(motion.div)`
-  padding: 0rem 5rem;
-  h2 {
-    padding: 5rem 0rem;
-  }
-`;
-const Games = styled(motion.div)`
-  min-height: 80vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  grid-column-gap: 3rem;
-  grid-row-gap: 5rem;
-  cursor: pointer;
-`;
